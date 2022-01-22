@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +38,10 @@ class CalculatorHomePage extends StatefulWidget {
 }
 
 class _CalculatorHomePageState extends State<CalculatorHomePage> {
+  String userInput = '';
+  String result = '';
+  List<String> operators = ['/', '*', '-', '+', ''];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +53,10 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
             children: [
               Expanded(
                 flex: 1,
-                child: ResultDisplay(text: 'xd'),
+                child: ResultDisplay(
+                  userInput: userInput,
+                  result: result,
+                ),
               ),
               Expanded(
                 flex: 2,
@@ -59,25 +67,60 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                       children: [
                         Flexible(
                             child: CalculatorButton(
-                          label: 'NUM',
-                          onTap: () => {},
-                          size: 85,
-                        )),
+                              label: 'CE',
+                              onTap: () =>
+                              {
+                                setState(() => userInput = '')
+                              },
+                              size: 85,
+                            )),
                         Flexible(
                             child: CalculatorButton(
                                 label: '7',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '7',
+                                    // equalPressed(userInput)
+                                  })
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '4',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '4',
+                                    // equalPressed(userInput)
+                                  })
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '1',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '1',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
+                                size: 85)),
+                        Expanded(
+                            child: CalculatorButton(
+                                label: '0',
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '0',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85))
+
                       ],
                     ),
                     Column(
@@ -85,22 +128,50 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                         Flexible(
                             child: CalculatorButton(
                                 label: '/',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '/',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '8',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '8',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '5',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '5',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '2',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '2',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85))
                       ],
                     ),
@@ -109,23 +180,64 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                         Flexible(
                             child: CalculatorButton(
                                 label: '*',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '*',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '9',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '9',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '6',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '6',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Flexible(
                             child: CalculatorButton(
                                 label: '3',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '3',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
+                                size: 85)),
+                        Flexible(
+                            child: CalculatorButton(
+                                label: '.',
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '.',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85))
+
                       ],
                     ),
                     Column(
@@ -133,17 +245,40 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                         Flexible(
                             child: CalculatorButton(
                                 label: '-',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    userInput += '-',
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Expanded(
                             child: CalculatorButton(
                                 label: '+',
-                                onTap: () => {},
+                                onTap: () =>
+                                {
+                                  setState(() => {
+                                    if(!userInput.endsWith('+')) {
+                                      userInput += '+',
+                                    },
+
+                                    // equalPressed(userInput)
+                                  })
+
+                                },
                                 size: 85)),
                         Expanded(
                           child: CalculatorButton(
                               label: 'ENTER',
-                              onTap: () => {},
+                              onTap: () =>
+                              {
+                                setState(() => {
+                                  result = equalPressed(userInput)
+                                })
+
+                              },
                               size: 85),
                         )
                       ],
@@ -158,6 +293,32 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
         ));
   }
 }
+
+bool containsDuplicateOperator(String seq, String char) {
+  bool seenFirst = false;
+  for (int i = 0; i < seq.length; i++) {
+    if (seq[i] != seq) {
+      continue;
+    }
+    if (seenFirst) {
+      return true;
+    }
+    seenFirst = true;
+  }
+  return false;
+}
+
+String equalPressed(String userInput) {
+  String finaluserinput = userInput;
+  // finaluserinput = userInput.replaceAll('x', '*');
+
+  Parser p = Parser();
+  Expression exp = p.parse(finaluserinput);
+  ContextModel cm = ContextModel();
+  double eval = exp.evaluate(EvaluationType.REAL, cm);
+  return eval.toString();
+}
+
 
 class CalculatorButton extends StatelessWidget {
   final String label;
@@ -202,24 +363,43 @@ class CalculatorButton extends StatelessWidget {
 }
 
 class ResultDisplay extends StatelessWidget {
-  final String text;
+  final String userInput;
+  final String result;
 
-  const ResultDisplay({Key? key, required this.text}) : super(key: key);
+  const ResultDisplay({Key? key, required this.userInput, required this.result})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 120,
-      color: Colors.black,
-      child: Container(
-        alignment: Alignment.bottomRight,
-        padding: const EdgeInsets.only(right: 24, bottom: 24),
-        child: Text(
-          text,
-          style: TextStyle(color: Colors.white, fontSize: 34),
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 100,
+          color: Colors.black,
+          child: Container(
+            alignment: Alignment.bottomRight,
+            padding: const EdgeInsets.only(right: 12, bottom: 12),
+            child: Text(
+              userInput,
+              style: TextStyle(color: Colors.white, fontSize: 17),
+            ),
+          ),
         ),
-      ),
+        Container(
+          width: double.infinity,
+          height: 120,
+          color: Colors.black,
+          child: Container(
+            alignment: Alignment.bottomRight,
+            padding: const EdgeInsets.only(right: 24, bottom: 24),
+            child: Text(
+              result,
+              style: TextStyle(color: Colors.white, fontSize: 34),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
